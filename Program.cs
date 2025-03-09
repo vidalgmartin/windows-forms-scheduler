@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using C969.Database;
 
 namespace C969
 {
@@ -16,7 +17,10 @@ namespace C969
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            DbConnection.startConnection();
             Application.Run(new Form1());
+            DbConnection.stopConnection();
         }
     }
 }
