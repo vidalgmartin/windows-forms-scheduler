@@ -36,10 +36,10 @@ C:\Users\Vidal\Code\C969\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.AssemblyReference.cache
 C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.SuggestedBindingRedirects.cache
 C:\Users\Vidal\Code\C969\obj\Debug\C969.exe.config
-C:\Users\Vidal\Code\C969\obj\Debug\C969.Form1.resources
 C:\Users\Vidal\Code\C969\obj\Debug\C969.Properties.Resources.resources
 C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.GenerateResource.cache
 C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.CoreCompileInputs.cache
 C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.Up2Date
 C:\Users\Vidal\Code\C969\obj\Debug\C969.exe
 C:\Users\Vidal\Code\C969\obj\Debug\C969.pdb
+C:\Users\Vidal\Code\C969\obj\Debug\C969.Login.resources

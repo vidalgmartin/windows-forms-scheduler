@@ -19,7 +19,7 @@ namespace C969
             Application.SetCompatibleTextRenderingDefault(false);
 
             DbConnection.startConnection();
-            Application.Run(new Form1());
+            Application.Run(new Login());
             DbConnection.stopConnection();
         }
     }

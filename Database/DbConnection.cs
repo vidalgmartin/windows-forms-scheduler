@@ -25,8 +25,6 @@ namespace C969.Database
 
                 // open connection
                 connection.Open();
-
-                MessageBox.Show("Connection succesful");
             }
             catch (MySqlException ex)
             {
