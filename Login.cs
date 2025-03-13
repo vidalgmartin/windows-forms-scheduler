@@ -9,8 +9,10 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using static C969.Database.DbConnection;
@@ -19,13 +21,69 @@ namespace C969
 {
     public partial class Login : Form
     {
+        public string languageIso = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
 
         public Login()
         {
-            InitializeComponent();
+            InitializeComponent();      
 
-            string culture = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-            Console.WriteLine("Culture: " + culture);
+            // default language translation to spanish
+            if (languageIso == "en")
+            {
+                languageIso = "es";
+            }
+
+            // current user timezone
+            TimeZoneInfo localZone = TimeZoneInfo.Local;
+            timezoneLabel.Text = localZone.DisplayName;
+        }
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = "SELECT * FROM user WHERE userName = @username AND password = @password AND active = 1;";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@username", usernameField.Text);
+                    cmd.Parameters.AddWithValue("@password", passwordField.Text);
+
+                    if (usernameField.Text == "" || passwordField.Text == "")
+                    {
+                        errorLabel.Text = "Fields cannot be empty";
+
+                        string translatedText = TranslateText(errorLabel.Text, languageIso);
+                        translatedErrorLabel.Text = translatedText;
+
+                        return;
+                    }
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            errorLabel.Text = "User Found";
+
+                            string translatedText = TranslateText(errorLabel.Text, languageIso);
+                            translatedErrorLabel.Text = translatedText;
+
+                            logLogin(usernameField.Text);
+                        }
+                        else
+                        {
+                            errorLabel.Text = "The username and password do not match.";
+
+                            string translatedText = TranslateText(errorLabel.Text, languageIso);
+                            translatedErrorLabel.Text = translatedText;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void logLogin(string username)
@@ -45,41 +103,20 @@ namespace C969
             }
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
+        public string TranslateText(string text, string languageIso)
         {
-            try
+            // google translate api
+            string url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl={languageIso}&dt=t&q={HttpUtility.UrlEncode(text)}";
+
+            using (WebClient webClient = new WebClient())
             {
-                string query = "SELECT * FROM user WHERE userName = @username AND password = @password AND active = 1;";
+                webClient.Encoding = System.Text.Encoding.UTF8;
+                string result = webClient.DownloadString(url);
 
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@username", usernameField.Text);
-                    cmd.Parameters.AddWithValue("@password", passwordField.Text);
-
-                    if (usernameField.Text == "" || passwordField.Text == "")
-                    {
-                        errorLabel.Text = "Fields cannot be empty";
-                        return;
-                    }
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            errorLabel.Text = "User Found";
-
-                            logLogin(usernameField.Text);
-                        }
-                        else
-                        {
-                            errorLabel.Text = "The username and password do not match.";
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                // extract text form JSON like format
+                int firstQuote = result.IndexOf('"') + 1;
+                int secondQuote = result.IndexOf('"', firstQuote);
+                return result.Substring(firstQuote, secondQuote - firstQuote);
             }
         }
     }

@@ -34,12 +34,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.loginBtn = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.timezoneLabel = new System.Windows.Forms.Label();
+            this.translatedErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // usernameField
             // 
             this.usernameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameField.Location = new System.Drawing.Point(49, 53);
+            this.usernameField.Location = new System.Drawing.Point(155, 72);
             this.usernameField.Name = "usernameField";
             this.usernameField.Size = new System.Drawing.Size(175, 26);
             this.usernameField.TabIndex = 1;
@@ -47,7 +49,7 @@
             // passwordField
             // 
             this.passwordField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordField.Location = new System.Drawing.Point(49, 123);
+            this.passwordField.Location = new System.Drawing.Point(155, 142);
             this.passwordField.Name = "passwordField";
             this.passwordField.Size = new System.Drawing.Size(175, 26);
             this.passwordField.TabIndex = 2;
@@ -56,7 +58,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 34);
+            this.label1.Location = new System.Drawing.Point(152, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 3;
@@ -66,7 +68,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(49, 104);
+            this.label2.Location = new System.Drawing.Point(155, 123);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 16);
             this.label2.TabIndex = 4;
@@ -74,7 +76,7 @@
             // 
             // loginBtn
             // 
-            this.loginBtn.Location = new System.Drawing.Point(84, 168);
+            this.loginBtn.Location = new System.Drawing.Point(190, 187);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(100, 30);
             this.loginBtn.TabIndex = 5;
@@ -85,17 +87,37 @@
             // errorLabel
             // 
             this.errorLabel.AutoSize = true;
-            this.errorLabel.Location = new System.Drawing.Point(49, 226);
+            this.errorLabel.Location = new System.Drawing.Point(155, 245);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(58, 13);
             this.errorLabel.TabIndex = 6;
             this.errorLabel.Text = "Error Label";
             // 
+            // timezoneLabel
+            // 
+            this.timezoneLabel.AutoSize = true;
+            this.timezoneLabel.Location = new System.Drawing.Point(12, 9);
+            this.timezoneLabel.Name = "timezoneLabel";
+            this.timezoneLabel.Size = new System.Drawing.Size(56, 13);
+            this.timezoneLabel.TabIndex = 7;
+            this.timezoneLabel.Text = "Time-zone";
+            // 
+            // translatedErrorLabel
+            // 
+            this.translatedErrorLabel.AutoSize = true;
+            this.translatedErrorLabel.Location = new System.Drawing.Point(158, 272);
+            this.translatedErrorLabel.Name = "translatedErrorLabel";
+            this.translatedErrorLabel.Size = new System.Drawing.Size(106, 13);
+            this.translatedErrorLabel.TabIndex = 8;
+            this.translatedErrorLabel.Text = "Translated error label";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 311);
+            this.ClientSize = new System.Drawing.Size(484, 311);
+            this.Controls.Add(this.translatedErrorLabel);
+            this.Controls.Add(this.timezoneLabel);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.label2);
@@ -117,6 +139,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Label timezoneLabel;
+        private System.Windows.Forms.Label translatedErrorLabel;
     }
 }
 
