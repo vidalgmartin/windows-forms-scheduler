@@ -85,10 +85,11 @@
             // errorLabel
             // 
             this.errorLabel.AutoSize = true;
-            this.errorLabel.Location = new System.Drawing.Point(116, 238);
+            this.errorLabel.Location = new System.Drawing.Point(49, 226);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(0, 13);
+            this.errorLabel.Size = new System.Drawing.Size(58, 13);
             this.errorLabel.TabIndex = 6;
+            this.errorLabel.Text = "Error Label";
             // 
             // Login
             // 

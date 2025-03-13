@@ -23,7 +23,6 @@ namespace C969.Database
                 string connectionStr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
                 connection = new MySqlConnection(connectionStr);
 
-                // open connection
                 connection.Open();
             }
             catch (MySqlException ex)
@@ -36,7 +35,6 @@ namespace C969.Database
         {
             try
             {
-                // close connection
                 if (connection != null)
                 {
                     connection.Close();
