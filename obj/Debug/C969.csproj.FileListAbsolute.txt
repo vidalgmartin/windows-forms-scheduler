@@ -1,3 +1,12 @@
+C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.AssemblyReference.cache
+C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.SuggestedBindingRedirects.cache
+C:\Users\Vidal\Code\C969\obj\Debug\C969.exe.config
+C:\Users\Vidal\Code\C969\obj\Debug\C969.Customer.AddCustomer.resources
+C:\Users\Vidal\Code\C969\obj\Debug\C969.Customer.CustomerRecords.resources
+C:\Users\Vidal\Code\C969\obj\Debug\C969.Login.resources
+C:\Users\Vidal\Code\C969\obj\Debug\C969.Properties.Resources.resources
+C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.GenerateResource.cache
+C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.CoreCompileInputs.cache
 C:\Users\Vidal\Code\C969\bin\Debug\C969.exe.config
 C:\Users\Vidal\Code\C969\bin\Debug\C969.exe
 C:\Users\Vidal\Code\C969\bin\Debug\C969.pdb
@@ -33,14 +42,6 @@ C:\Users\Vidal\Code\C969\bin\Debug\System.Memory.xml
 C:\Users\Vidal\Code\C969\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Vidal\Code\C969\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Vidal\Code\C969\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.AssemblyReference.cache
-C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.SuggestedBindingRedirects.cache
-C:\Users\Vidal\Code\C969\obj\Debug\C969.exe.config
-C:\Users\Vidal\Code\C969\obj\Debug\C969.Properties.Resources.resources
-C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.GenerateResource.cache
-C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.CoreCompileInputs.cache
 C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.Up2Date
 C:\Users\Vidal\Code\C969\obj\Debug\C969.exe
 C:\Users\Vidal\Code\C969\obj\Debug\C969.pdb
-C:\Users\Vidal\Code\C969\obj\Debug\C969.Login.resources
-C:\Users\Vidal\Code\C969\obj\Debug\C969.CustomerRecords.resources

@@ -99,10 +99,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerRecords.cs">
+    <Compile Include="Customer\AddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerRecords.Designer.cs">
+    <Compile Include="Customer\AddCustomer.Designer.cs">
+      <DependentUpon>AddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\CustomerRecords.Designer.cs">
       <DependentUpon>CustomerRecords.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DbConnection.cs" />
@@ -114,7 +120,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CustomerRecords.resx">
+    <EmbeddedResource Include="Customer\AddCustomer.resx">
+      <DependentUpon>AddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\CustomerRecords.resx">
       <DependentUpon>CustomerRecords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">

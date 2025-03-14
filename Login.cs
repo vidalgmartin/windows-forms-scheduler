@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
+using C969.Customer;
 using MySql.Data.MySqlClient;
 using static C969.Database.DbConnection;
 
@@ -29,7 +30,6 @@ namespace C969
 
             CustomerRecords customerRecordsForm = new CustomerRecords();
             customerRecordsForm.Show();
-            this.Show();
 
             // default language translation to spanish
             if (languageIso == "en")

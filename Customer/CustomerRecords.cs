@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using static C969.Database.DbConnection;
 
-namespace C969
+namespace C969.Customer
 {
     public partial class CustomerRecords : Form
     {
@@ -18,7 +18,7 @@ namespace C969
         {
             InitializeComponent();
 
-            GetCustomer();
+            GetCustomerRecords();
             customerRecordsGrid.DataSource = Customers;
         }
 
@@ -34,7 +34,7 @@ namespace C969
 
         public BindingList<Customer> Customers { get; set; } = new BindingList<Customer>();
 
-        public void GetCustomer()
+        public void GetCustomerRecords()
         {
             try
             {
@@ -76,6 +76,12 @@ namespace C969
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void addCustomerBtn_Click(object sender, EventArgs e)
+        {
+            AddCustomer addCustomer = new AddCustomer();
+            addCustomer.Show();
         }
     }
 }
