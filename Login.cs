@@ -25,7 +25,11 @@ namespace C969
 
         public Login()
         {
-            InitializeComponent();      
+            InitializeComponent();
+
+            CustomerRecords customerRecordsForm = new CustomerRecords();
+            customerRecordsForm.Show();
+            this.Show();
 
             // default language translation to spanish
             if (languageIso == "en")
@@ -63,12 +67,13 @@ namespace C969
                     {
                         if (reader.HasRows)
                         {
-                            errorLabel.Text = "User Found";
-
-                            string translatedText = TranslateText(errorLabel.Text, languageIso);
-                            translatedErrorLabel.Text = translatedText;
-
+                            // log user entry
                             logLogin(usernameField.Text);
+
+                            // close form and open customer records
+
+                            //CustomerRecords customerRecordsForm = new CustomerRecords();
+                            //customerRecordsForm.Show();                                               
                         }
                         else
                         {
@@ -113,7 +118,7 @@ namespace C969
                 webClient.Encoding = System.Text.Encoding.UTF8;
                 string result = webClient.DownloadString(url);
 
-                // extract text form JSON like format
+                // extract text from JSON like format
                 int firstQuote = result.IndexOf('"') + 1;
                 int secondQuote = result.IndexOf('"', firstQuote);
                 return result.Substring(firstQuote, secondQuote - firstQuote);
