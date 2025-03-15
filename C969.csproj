@@ -99,17 +99,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer\AddCustomer.cs">
+    <Compile Include="CustomerForms\AddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\AddCustomer.Designer.cs">
+    <Compile Include="CustomerForms\AddCustomer.Designer.cs">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer\CustomerRecords.cs">
+    <Compile Include="CustomerForms\CustomerRecords.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\CustomerRecords.Designer.cs">
+    <Compile Include="CustomerForms\CustomerRecords.Designer.cs">
       <DependentUpon>CustomerRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerForms\UpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerForms\UpdateCustomer.Designer.cs">
+      <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DbConnection.cs" />
     <Compile Include="Login.cs">
@@ -120,11 +126,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Customer\AddCustomer.resx">
+    <EmbeddedResource Include="CustomerForms\AddCustomer.resx">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\CustomerRecords.resx">
+    <EmbeddedResource Include="CustomerForms\CustomerRecords.resx">
       <DependentUpon>CustomerRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerForms\UpdateCustomer.resx">
+      <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static C969.Database.DbConnection;
 
-namespace C969.Customer
+namespace C969.CustomerForms
 {
     public partial class AddCustomer : Form
     {
@@ -104,6 +104,7 @@ namespace C969.Customer
         private void addBtn_Click(object sender, EventArgs e)
         {
             createCustomer(nameInput.Text, addressInput.Text, cityInput.Text, countryInput.Text, phoneInput.Text);
+            this.Close();
         }
     }
 }

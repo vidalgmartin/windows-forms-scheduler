@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using static C969.Database.DbConnection;
 
-namespace C969.Customer
+namespace C969.CustomerForms
 {
     public partial class CustomerRecords : Form
     {
@@ -26,7 +26,8 @@ namespace C969.Customer
         {
             public int CustomerId { get; set; }
             public string CustomerName { get; set; }
-            public string AddressId { get; set; }
+            public int AddressId { get; set; }
+            public string Address { get; set; }
             public string City { get; set; }
             public string Country { get; set; }
             public string Phone { get; set; }
@@ -42,6 +43,7 @@ namespace C969.Customer
                                 SELECT 
                                     c.customerId,
                                     c.customerName,
+                                    a.addressId,
                                     a.address,
                                     ci.city,
                                     co.country,
@@ -61,7 +63,8 @@ namespace C969.Customer
                             {
                                 CustomerId = reader.GetInt32("customerId"),
                                 CustomerName = reader.GetString("customerName"),
-                                AddressId = reader.GetString("address"),
+                                AddressId = reader.GetInt32("addressId"),
+                                Address = reader.GetString("address"),
                                 City = reader.GetString("city"),
                                 Country = reader.GetString("country"),
                                 Phone = reader.GetString("phone")
@@ -82,6 +85,17 @@ namespace C969.Customer
         {
             AddCustomer addCustomer = new AddCustomer();
             addCustomer.Show();
+        }
+
+        private void updateCustomerBtn_Click(object sender, EventArgs e)
+        {
+            if (customerRecordsGrid.Rows.Count > 0)
+            {
+                var customer = (Customer)customerRecordsGrid.SelectedRows[0].DataBoundItem;
+
+                UpdateCustomer updateCustomer = new UpdateCustomer(customer);
+                updateCustomer.Show();
+            }
         }
     }
 }

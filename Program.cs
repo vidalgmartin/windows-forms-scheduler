@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using C969.Customer;
+using C969.CustomerForms;
 using C969.Database;
 
 namespace C969

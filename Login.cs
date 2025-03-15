@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
-using C969.Customer;
+using C969.CustomerForms;
 using MySql.Data.MySqlClient;
 using static C969.Database.DbConnection;
 

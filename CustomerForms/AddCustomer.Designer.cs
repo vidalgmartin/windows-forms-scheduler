@@ -1,4 +1,4 @@
-﻿namespace C969.Customer
+﻿namespace C969.CustomerForms
 {
     partial class AddCustomer
     {
