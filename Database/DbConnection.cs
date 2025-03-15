@@ -14,6 +14,7 @@ namespace C969.Database
     public class DbConnection
     {
         public static MySqlConnection connection { get; set; }
+        public static string currentUser;
 
         public static void startConnection()
         {

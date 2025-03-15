@@ -70,6 +70,9 @@ namespace C969
                             // log user entry
                             logLogin(usernameField.Text);
 
+                            // update currentUser
+                            currentUser = usernameField.Text;
+
                             // close form and open customer records
 
                             //CustomerRecords customerRecordsForm = new CustomerRecords();
