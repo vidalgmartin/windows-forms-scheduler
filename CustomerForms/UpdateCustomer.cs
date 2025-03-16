@@ -118,13 +118,27 @@ namespace C969.CustomerForms
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            // validate non empty input fields
+            TextBox[] inputFields = { nameInput, addressInput, cityInput, countryInput, phoneInput };
+            if (!ValidationHelper.ValidateFields(inputFields))
+            {
+                return;
+            };
+
+            // validate phone number
+            if (!ValidationHelper.ValidatePhone(phoneInput.Text))
+            {
+                MessageBox.Show("Invalid phone number. Only digits and dashes allowed.");
+                return;
+            }
+
             int customerId = _customer.CustomerId;
             int addressId = _customer.AddressId;
-            string updatedName = nameInput.Text;
-            string updatedAddress = addressInput.Text;
-            string updatedCity = cityInput.Text;
-            string updatedCountry = countryInput.Text;
-            string updatedPhone = phoneInput.Text;
+            string updatedName = nameInput.Text.Trim();
+            string updatedAddress = addressInput.Text.Trim();
+            string updatedCity = cityInput.Text.Trim();
+            string updatedCountry = countryInput.Text.Trim();
+            string updatedPhone = phoneInput.Text.Trim();
 
             saveCustomerUpdates(customerId, updatedName, updatedAddress, updatedCity, updatedCountry, updatedPhone, addressId);
         }

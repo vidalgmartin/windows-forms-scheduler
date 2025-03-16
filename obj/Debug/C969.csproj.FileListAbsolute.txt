@@ -44,6 +44,3 @@ C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.CoreCompileInputs.cache
 C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.Up2Date
 C:\Users\Vidal\Code\C969\obj\Debug\C969.exe
 C:\Users\Vidal\Code\C969\obj\Debug\C969.pdb
-C:\Users\Vidal\Code\C969\bin\Debug\DotLiquid.dll
-C:\Users\Vidal\Code\C969\bin\Debug\DotLiquid.xml
-C:\Users\Vidal\Code\C969\bin\Debug\it\DotLiquid.resources.dll

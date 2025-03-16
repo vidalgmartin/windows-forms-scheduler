@@ -5,11 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static C969.Database.DbConnection;
+using static C969.ValidationHelper;
 
 namespace C969.CustomerForms
 {
@@ -109,22 +111,25 @@ namespace C969.CustomerForms
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            TextBox[] inputFields = { nameInput, addressInput, cityInput, countryInput, phoneInput };
-
-            foreach (TextBox field in inputFields)
+            // validate non empty input fields
+            TextBox[] inputFields = { nameInput, addressInput, cityInput, countryInput, phoneInput }; 
+            if (!ValidationHelper.ValidateFields(inputFields))
             {
-                if (string.IsNullOrWhiteSpace(field.Text))
-                {
-                    MessageBox.Show("Fields cannot be empty");
-                    return;
-                }
+                return;
+            };
+
+            // validate phone number
+            if (!ValidationHelper.ValidatePhone(phoneInput.Text))
+            {
+                MessageBox.Show("Invalid phone number. Only digits and dashes allowed.");
+                return;
             }
 
-            string name = nameInput.Text;
-            string address = addressInput.Text;
-            string city = addressInput.Text;
-            string country = countryInput.Text;
-            string phone = addressInput.Text;
+            string name = nameInput.Text.Trim();
+            string address = addressInput.Text.Trim();
+            string city = cityInput.Text.Trim();
+            string country = countryInput.Text.Trim();
+            string phone = phoneInput.Text.Trim();                      
 
             createCustomer(name, address, city, country, phone);
         }
