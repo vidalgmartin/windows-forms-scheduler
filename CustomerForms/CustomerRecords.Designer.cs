@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.customerRecordsGrid = new System.Windows.Forms.DataGridView();
-            this.addCustomerBtn = new System.Windows.Forms.Button();
-            this.updateCustomerBtn = new System.Windows.Forms.Button();
             this.customerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +37,9 @@
             this.cityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addCustomerBtn = new System.Windows.Forms.Button();
+            this.updateCustomerBtn = new System.Windows.Forms.Button();
+            this.deleteCustomerBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.customerRecordsGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,14 +50,14 @@
             this.customerRecordsGrid.AllowUserToResizeColumns = false;
             this.customerRecordsGrid.AllowUserToResizeRows = false;
             this.customerRecordsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.customerRecordsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.customerRecordsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.customerRecordsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customerRecordsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.customerId,
@@ -67,7 +68,7 @@
             this.countryColumn,
             this.phoneColumn});
             this.customerRecordsGrid.EnableHeadersVisualStyles = false;
-            this.customerRecordsGrid.Location = new System.Drawing.Point(12, 80);
+            this.customerRecordsGrid.Location = new System.Drawing.Point(29, 24);
             this.customerRecordsGrid.MultiSelect = false;
             this.customerRecordsGrid.Name = "customerRecordsGrid";
             this.customerRecordsGrid.ReadOnly = true;
@@ -75,28 +76,8 @@
             this.customerRecordsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.customerRecordsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customerRecordsGrid.ShowEditingIcon = false;
-            this.customerRecordsGrid.Size = new System.Drawing.Size(776, 206);
+            this.customerRecordsGrid.Size = new System.Drawing.Size(776, 275);
             this.customerRecordsGrid.TabIndex = 0;
-            // 
-            // addCustomerBtn
-            // 
-            this.addCustomerBtn.Location = new System.Drawing.Point(420, 309);
-            this.addCustomerBtn.Name = "addCustomerBtn";
-            this.addCustomerBtn.Size = new System.Drawing.Size(75, 23);
-            this.addCustomerBtn.TabIndex = 1;
-            this.addCustomerBtn.Text = "Add";
-            this.addCustomerBtn.UseVisualStyleBackColor = true;
-            this.addCustomerBtn.Click += new System.EventHandler(this.addCustomerBtn_Click);
-            // 
-            // updateCustomerBtn
-            // 
-            this.updateCustomerBtn.Location = new System.Drawing.Point(528, 309);
-            this.updateCustomerBtn.Name = "updateCustomerBtn";
-            this.updateCustomerBtn.Size = new System.Drawing.Size(75, 23);
-            this.updateCustomerBtn.TabIndex = 2;
-            this.updateCustomerBtn.Text = "Update";
-            this.updateCustomerBtn.UseVisualStyleBackColor = true;
-            this.updateCustomerBtn.Click += new System.EventHandler(this.updateCustomerBtn_Click);
             // 
             // customerId
             // 
@@ -156,11 +137,44 @@
             this.phoneColumn.Name = "phoneColumn";
             this.phoneColumn.ReadOnly = true;
             // 
+            // addCustomerBtn
+            // 
+            this.addCustomerBtn.Location = new System.Drawing.Point(479, 318);
+            this.addCustomerBtn.Name = "addCustomerBtn";
+            this.addCustomerBtn.Size = new System.Drawing.Size(100, 40);
+            this.addCustomerBtn.TabIndex = 1;
+            this.addCustomerBtn.Text = "Add";
+            this.addCustomerBtn.UseVisualStyleBackColor = true;
+            this.addCustomerBtn.Click += new System.EventHandler(this.addCustomerBtn_Click);
+            // 
+            // updateCustomerBtn
+            // 
+            this.updateCustomerBtn.Location = new System.Drawing.Point(592, 318);
+            this.updateCustomerBtn.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.updateCustomerBtn.Name = "updateCustomerBtn";
+            this.updateCustomerBtn.Size = new System.Drawing.Size(100, 40);
+            this.updateCustomerBtn.TabIndex = 2;
+            this.updateCustomerBtn.Text = "Update";
+            this.updateCustomerBtn.UseVisualStyleBackColor = true;
+            this.updateCustomerBtn.Click += new System.EventHandler(this.updateCustomerBtn_Click);
+            // 
+            // deleteCustomerBtn
+            // 
+            this.deleteCustomerBtn.Location = new System.Drawing.Point(705, 318);
+            this.deleteCustomerBtn.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.deleteCustomerBtn.Name = "deleteCustomerBtn";
+            this.deleteCustomerBtn.Size = new System.Drawing.Size(100, 40);
+            this.deleteCustomerBtn.TabIndex = 3;
+            this.deleteCustomerBtn.Text = "Delete";
+            this.deleteCustomerBtn.UseVisualStyleBackColor = true;
+            this.deleteCustomerBtn.Click += new System.EventHandler(this.deleteCustomerBtn_Click);
+            // 
             // CustomerRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(834, 411);
+            this.Controls.Add(this.deleteCustomerBtn);
             this.Controls.Add(this.updateCustomerBtn);
             this.Controls.Add(this.addCustomerBtn);
             this.Controls.Add(this.customerRecordsGrid);
@@ -183,5 +197,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cityColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countryColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneColumn;
+        private System.Windows.Forms.Button deleteCustomerBtn;
     }
 }

@@ -16,10 +16,12 @@ namespace C969.CustomerForms
     public partial class UpdateCustomer : Form
     {
         private CustomerRecords.Customer _customer;
+        public event Action CustomerUpdated;
 
         public UpdateCustomer(CustomerRecords.Customer customer)
         {
             InitializeComponent();
+  
             _customer = customer;
 
             nameInput.Text = _customer.CustomerName;
@@ -100,8 +102,12 @@ namespace C969.CustomerForms
                     }
 
                     // commit transaction
-                    transaction.Commit();
+                    transaction.Commit();                 
                     MessageBox.Show("Customer updated");
+
+                    // trigger event to notify CustomerRecords
+                    CustomerUpdated?.Invoke();
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -121,7 +127,6 @@ namespace C969.CustomerForms
             string updatedPhone = phoneInput.Text;
 
             saveCustomerUpdates(customerId, updatedName, updatedAddress, updatedCity, updatedCountry, updatedPhone, addressId);
-            this.Close();
         }
     }
 }

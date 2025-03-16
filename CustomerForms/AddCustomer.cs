@@ -15,6 +15,8 @@ namespace C969.CustomerForms
 {
     public partial class AddCustomer : Form
     {
+        public event Action CustomerUpdated;
+
         public AddCustomer()
         {
             InitializeComponent();
@@ -93,6 +95,10 @@ namespace C969.CustomerForms
                     // complete the transaction
                     transaction.Commit();
                     MessageBox.Show("Customer added");
+
+                    // trigger event to notify CustomerRecords
+                    CustomerUpdated?.Invoke();
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -103,8 +109,24 @@ namespace C969.CustomerForms
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            createCustomer(nameInput.Text, addressInput.Text, cityInput.Text, countryInput.Text, phoneInput.Text);
-            this.Close();
+            TextBox[] inputFields = { nameInput, addressInput, cityInput, countryInput, phoneInput };
+
+            foreach (TextBox field in inputFields)
+            {
+                if (string.IsNullOrWhiteSpace(field.Text))
+                {
+                    MessageBox.Show("Fields cannot be empty");
+                    return;
+                }
+            }
+
+            string name = nameInput.Text;
+            string address = addressInput.Text;
+            string city = addressInput.Text;
+            string country = countryInput.Text;
+            string phone = addressInput.Text;
+
+            createCustomer(name, address, city, country, phone);
         }
     }
 }

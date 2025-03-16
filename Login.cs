@@ -16,6 +16,7 @@ using System.Web;
 using System.Windows.Forms;
 using C969.CustomerForms;
 using MySql.Data.MySqlClient;
+using static C969.CustomerForms.CustomerRecords;
 using static C969.Database.DbConnection;
 
 namespace C969
@@ -26,10 +27,7 @@ namespace C969
 
         public Login()
         {
-            InitializeComponent();
-
-            CustomerRecords customerRecordsForm = new CustomerRecords();
-            customerRecordsForm.Show();
+            InitializeComponent();      
 
             // default language translation to spanish
             if (languageIso == "en")
@@ -46,7 +44,8 @@ namespace C969
         {
             try
             {
-                string query = "SELECT * FROM user WHERE userName = @username AND password = @password AND active = 1;";
+                bool userFound = false;
+                string query = "SELECT * FROM user WHERE userName = @username AND password = @password AND active = 1;";               
 
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
@@ -73,10 +72,11 @@ namespace C969
                             // update currentUser
                             currentUser = usernameField.Text;
 
-                            // close form and open customer records
+                            // update userFound bool
+                            userFound = true;
 
-                            //CustomerRecords customerRecordsForm = new CustomerRecords();
-                            //customerRecordsForm.Show();                                               
+                            // hide login form
+                            this.Hide();                                          
                         }
                         else
                         {
@@ -86,12 +86,22 @@ namespace C969
                             translatedErrorLabel.Text = translatedText;
                         }
                     }
-                }
+
+                    // open customer records form if user is logged in
+                    if (userFound)
+                    {
+                        CustomerRecords customerRecordsForm = new CustomerRecords();
+                        customerRecordsForm.Show();
+
+                        // close login form when the customer records form is close
+                        customerRecordsForm.FormClosed += (s, args) => this.Close();                       
+                    }
+                }             
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }          
         }
 
         public void logLogin(string username)
