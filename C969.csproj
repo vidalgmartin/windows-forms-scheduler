@@ -99,22 +99,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerForms\AddCustomer.cs">
+    <Compile Include="Forms\AppointmentForms\AddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerForms\AddCustomer.Designer.cs">
+    <Compile Include="Forms\AppointmentForms\AddAppointment.Designer.cs">
+      <DependentUpon>AddAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AppointmentForms\UpdateAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppointmentForms\UpdateAppointment.Designer.cs">
+      <DependentUpon>UpdateAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\AddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\AddCustomer.Designer.cs">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerForms\CustomerRecords.cs">
+    <Compile Include="Forms\CustomerRecords.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerForms\CustomerRecords.Designer.cs">
+    <Compile Include="Forms\CustomerRecords.Designer.cs">
       <DependentUpon>CustomerRecords.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerForms\UpdateCustomer.cs">
+    <Compile Include="Forms\CustomerForms\UpdateCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerForms\UpdateCustomer.Designer.cs">
+    <Compile Include="Forms\CustomerForms\UpdateCustomer.Designer.cs">
       <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DbConnection.cs" />
@@ -127,13 +139,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationHelper.cs" />
-    <EmbeddedResource Include="CustomerForms\AddCustomer.resx">
+    <EmbeddedResource Include="Forms\AppointmentForms\AddAppointment.resx">
+      <DependentUpon>AddAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerForms\AddCustomer.resx">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerForms\CustomerRecords.resx">
+    <EmbeddedResource Include="Forms\CustomerRecords.resx">
       <DependentUpon>CustomerRecords.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerForms\UpdateCustomer.resx">
+    <EmbeddedResource Include="Forms\CustomerForms\UpdateCustomer.resx">
       <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -165,5 +180,6 @@
   <ItemGroup>
     <Content Include="Login_History.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

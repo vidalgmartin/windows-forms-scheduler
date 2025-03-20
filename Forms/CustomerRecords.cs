@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using C969.Forms.AppointmentForms;
 using MySql.Data.MySqlClient;
 using static C969.Database.DbConnection;
 
@@ -17,7 +18,8 @@ namespace C969.CustomerForms
         public CustomerRecords()
         {         
             InitializeComponent();
-            GetCustomerRecords();       
+            GetCustomers();
+            GetAppointments();
         }
 
         public class Customer
@@ -33,7 +35,7 @@ namespace C969.CustomerForms
 
         public BindingList<Customer> Customers { get; set; } = new BindingList<Customer>();
 
-        public void GetCustomerRecords()
+        public void GetCustomers()
         {
             // clear customer list to avoid duplication
             Customers.Clear();
@@ -41,18 +43,18 @@ namespace C969.CustomerForms
             try
             {
                 string query = @"
-                                SELECT 
-                                    c.customerId,
-                                    c.customerName,
-                                    a.addressId,
-                                    a.address,
-                                    ci.city,
-                                    co.country,
-                                    a.phone
-                                FROM customer c
-                                JOIN address a ON c.addressId = a.addressId
-                                JOIN city ci ON a.cityId = ci.cityId
-                                JOIN country co ON ci.countryId = co.countryId;";
+                    SELECT 
+                        c.customerId,
+                        c.customerName,
+                        a.addressId,
+                        a.address,
+                        ci.city,
+                        co.country,
+                        a.phone
+                    FROM customer c
+                    JOIN address a ON c.addressId = a.addressId
+                    JOIN city ci ON a.cityId = ci.cityId
+                    JOIN country co ON ci.countryId = co.countryId;";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
@@ -88,7 +90,7 @@ namespace C969.CustomerForms
         private void addCustomerBtn_Click(object sender, EventArgs e)
         {
             AddCustomer addCustomer = new AddCustomer();
-            addCustomer.CustomerUpdated += GetCustomerRecords;
+            addCustomer.CustomerUpdated += GetCustomers;
             addCustomer.Show();
         }
 
@@ -99,7 +101,7 @@ namespace C969.CustomerForms
                 var customer = (Customer)customerRecordsGrid.SelectedRows[0].DataBoundItem;
 
                 UpdateCustomer updateCustomer = new UpdateCustomer(customer);
-                updateCustomer.CustomerUpdated += GetCustomerRecords;
+                updateCustomer.CustomerUpdated += GetCustomers;
                 updateCustomer.Show();
             }
         }
@@ -227,8 +229,73 @@ namespace C969.CustomerForms
                 var customer = (Customer)customerRecordsGrid.SelectedRows[0].DataBoundItem;
 
                 DeleteCustomer(customer.CustomerId);
-                GetCustomerRecords();
+                GetCustomers();
             }
+        }
+
+        public class Appointment
+        {
+            public int AppointmentId { get; set; }
+            public int CustomerId { get; set; }
+            public string CustomerName { get; set; }
+            public string Type { get; set; }
+            public DateTime Start { get; set; }
+            public DateTime End { get; set; }
+        }
+
+        public BindingList<Appointment> Appointments { get; set; } = new BindingList<Appointment>();
+
+        public void GetAppointments()
+        {
+            try
+            {
+                string query = @"
+                    SELECT 
+                        a.appointmentId, 
+                        a.customerId, 
+                        c.customerName, 
+                        a.type, 
+                        a.start, 
+                        a.end
+                    FROM appointment a
+                    JOIN customer c ON a.customerId = c.customerId;";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Appointment appointment = new Appointment
+                            {
+                                AppointmentId = reader.GetInt32("appointmentId"),
+                                CustomerId = reader.GetInt32("customerId"),
+                                CustomerName = reader.GetString("customerName"),
+                                Type = reader.GetString("type"),
+                                Start = reader.GetDateTime("start"),
+                                End = reader.GetDateTime("end")
+                            };
+
+                            Appointments.Add(appointment);
+                            appointmentsGrid.DataSource = Appointments;
+
+                            // add the time to the columns
+                            appointmentsGrid.Columns["Start"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
+                            appointmentsGrid.Columns["End"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void addAppointmentBtn_Click(object sender, EventArgs e)
+        {
+            AddAppointment addAppointment = new AddAppointment();
+            addAppointment.Show();
         }
     }
 }
