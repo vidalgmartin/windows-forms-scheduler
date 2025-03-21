@@ -294,8 +294,13 @@ namespace C969.CustomerForms
 
         private void addAppointmentBtn_Click(object sender, EventArgs e)
         {
-            AddAppointment addAppointment = new AddAppointment();
-            addAppointment.Show();
+            if (customerRecordsGrid.Rows.Count > 0)
+            {
+                var customer = (Customer)customerRecordsGrid.SelectedRows[0].DataBoundItem;
+
+                AddAppointment addAppointment = new AddAppointment(customer.CustomerName, customer.CustomerId);
+                addAppointment.Show();
+            }       
         }
     }
 }

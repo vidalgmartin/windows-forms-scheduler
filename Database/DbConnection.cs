@@ -15,6 +15,7 @@ namespace C969.Database
     {
         public static MySqlConnection connection { get; set; }
         public static string currentUser;
+        public static int currentUserId;
 
         public static void startConnection()
         {

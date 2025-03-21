@@ -49,8 +49,8 @@ namespace C969
 
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@username", usernameField.Text);
-                    cmd.Parameters.AddWithValue("@password", passwordField.Text);
+                    cmd.Parameters.AddWithValue("@username", usernameField.Text.Trim());
+                    cmd.Parameters.AddWithValue("@password", passwordField.Text.Trim());
 
                     if (usernameField.Text == "" || passwordField.Text == "")
                     {
@@ -64,13 +64,14 @@ namespace C969
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.HasRows)
+                        if (reader.Read())
                         {
                             // log user entry
                             logLogin(usernameField.Text);
 
-                            // update currentUser
+                            // update currentUser and currentUserId
                             currentUser = usernameField.Text;
+                            currentUserId = reader.GetInt32("userId");
 
                             // update userFound bool
                             userFound = true;
