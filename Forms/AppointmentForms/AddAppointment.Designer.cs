@@ -107,7 +107,7 @@
             // 
             this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datePicker.Location = new System.Drawing.Point(48, 220);
-            this.datePicker.MinDate = new System.DateTime(2025, 3, 20, 0, 0, 0, 0);
+            this.datePicker.MinDate = new System.DateTime(2025, 3, 21, 0, 0, 0, 0);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(130, 20);
             this.datePicker.TabIndex = 24;
@@ -116,7 +116,7 @@
             // 
             this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.timePicker.Location = new System.Drawing.Point(202, 220);
-            this.timePicker.MinDate = new System.DateTime(2025, 3, 20, 0, 0, 0, 0);
+            this.timePicker.MinDate = new System.DateTime(2025, 3, 21, 0, 0, 0, 0);
             this.timePicker.Name = "timePicker";
             this.timePicker.ShowUpDown = true;
             this.timePicker.Size = new System.Drawing.Size(130, 20);

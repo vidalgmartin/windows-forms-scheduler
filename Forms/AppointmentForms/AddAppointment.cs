@@ -15,12 +15,16 @@ namespace C969.Forms.AppointmentForms
 {
     public partial class AddAppointment : Form
     {
+        public event Action AppointmentUpdated;
         int selectedCustomerId;
         public AddAppointment(string customerName, int customerId)
         {
             InitializeComponent();
             nameInput.Text = customerName;
             selectedCustomerId = customerId;
+
+            // set the current date as the minimum date
+            datePicker.MinDate = DateTime.Now;
 
             // custom time format to remove seconds
             timePicker.CustomFormat = "hh:mm tt";
@@ -90,6 +94,7 @@ namespace C969.Forms.AppointmentForms
                 }
 
                 MessageBox.Show("Appointment added");
+                AppointmentUpdated?.Invoke();
                 this.Close();
             }
             catch (Exception ex)

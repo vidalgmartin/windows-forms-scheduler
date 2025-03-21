@@ -303,6 +303,7 @@ namespace C969.CustomerForms
                 var customer = (Customer)customerRecordsGrid.SelectedRows[0].DataBoundItem;
 
                 AddAppointment addAppointment = new AddAppointment(customer.CustomerName, customer.CustomerId);
+                addAppointment.AppointmentUpdated += GetAppointments;
                 addAppointment.Show();
             }       
         }
@@ -341,6 +342,24 @@ namespace C969.CustomerForms
 
                 DeleteAppointment(appointment.AppointmentId);
             }
+        }
+
+        private void updateAppointmentBtn_Click(object sender, EventArgs e)
+        {
+            if (appointmentsGrid.Rows.Count > 0)
+            {
+                var appointment = (Appointment)appointmentsGrid.SelectedRows[0].DataBoundItem;
+
+                int appointmentId = appointment.AppointmentId;
+                int customerId = appointment.CustomerId;
+                string customerName = appointment.CustomerName;
+                string type = appointment.Type;
+                DateTime start = appointment.Start;
+
+                UpdateAppointment updateAppointment = new UpdateAppointment(appointmentId, customerId, customerName, type, start);
+                updateAppointment.AppointmentUpdated += GetAppointments;
+                updateAppointment.Show();
+            }      
         }
     }
 }

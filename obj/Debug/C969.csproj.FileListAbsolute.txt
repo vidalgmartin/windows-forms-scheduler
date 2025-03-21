@@ -45,3 +45,4 @@ C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.Up2Date
 C:\Users\Vidal\Code\C969\obj\Debug\C969.exe
 C:\Users\Vidal\Code\C969\obj\Debug\C969.pdb
 C:\Users\Vidal\Code\C969\obj\Debug\C969.Forms.AppointmentForms.AddAppointment.resources
+C:\Users\Vidal\Code\C969\obj\Debug\C969.Forms.AppointmentForms.UpdateAppointment.resources
