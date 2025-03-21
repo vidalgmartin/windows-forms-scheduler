@@ -34,7 +34,7 @@ namespace C969.Forms.AppointmentForms
                 DateTime start = datePicker.Value.Date.AddHours(timePicker.Value.Hour).AddMinutes(timePicker.Value.Minute);
                 DateTime end = start.AddMinutes(30);
 
-                // convert to UTC
+                // convert time to UTC
                 DateTime startUtc = TimeZoneInfo.ConvertTimeToUtc(start);
                 DateTime endUtc = TimeZoneInfo.ConvertTimeToUtc(end);
 
@@ -55,12 +55,12 @@ namespace C969.Forms.AppointmentForms
 
                     if (count > 0)
                     {
-                        MessageBox.Show("Error: Appointment overlaps with an existing appointment.");
+                        MessageBox.Show("Appointment overlaps with an existing appointment.");
                         return;
                     }
                 }
 
-                // convert to EST
+                // convert time to EST
                 TimeZoneInfo estZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
                 DateTime startEST = TimeZoneInfo.ConvertTime(start, estZone);
                 DateTime endEST = TimeZoneInfo.ConvertTime(end, estZone);
@@ -109,6 +109,6 @@ namespace C969.Forms.AppointmentForms
 
             string type = typeInput.Text.Trim();
             createAppointment(type);
-        }
+        }      
     }
 }

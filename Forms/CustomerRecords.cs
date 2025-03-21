@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 using C969.Forms.AppointmentForms;
 using MySql.Data.MySqlClient;
@@ -247,6 +248,9 @@ namespace C969.CustomerForms
 
         public void GetAppointments()
         {
+            // clear appointments list to avoid duplication
+            Appointments.Clear();
+
             try
             {
                 string query = @"
@@ -301,6 +305,42 @@ namespace C969.CustomerForms
                 AddAppointment addAppointment = new AddAppointment(customer.CustomerName, customer.CustomerId);
                 addAppointment.Show();
             }       
+        }
+
+        private void DeleteAppointment(int appointmentId)
+        {
+            try
+            {
+                string query = "DELETE FROM appointment WHERE appointmentId = @appointmentId;";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@appointmentId", appointmentId);
+
+                    DialogResult confirm = MessageBox.Show("Proceed to delete this appointment?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo);
+
+                    if (confirm == DialogResult.Yes)
+                    {
+                        cmd.ExecuteNonQuery();
+                        GetAppointments();
+                    }                  
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void deleteAppointmentBtn_Click(object sender, EventArgs e)
+        {
+            if (appointmentsGrid.Rows.Count > 0) {
+                var appointment = (Appointment)appointmentsGrid.SelectedRows[0].DataBoundItem;
+
+                DeleteAppointment(appointment.AppointmentId);
+            }
         }
     }
 }
