@@ -10,6 +10,7 @@ using System.Transactions;
 using System.Windows.Forms;
 using C969.Forms.AppointmentForms;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using static C969.Database.DbConnection;
 
 namespace C969.CustomerForms
@@ -262,7 +263,8 @@ namespace C969.CustomerForms
                         a.start, 
                         a.end
                     FROM appointment a
-                    JOIN customer c ON a.customerId = c.customerId;";
+                    JOIN customer c ON a.customerId = c.customerId
+                    ORDER BY a.start ASC;";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
@@ -360,6 +362,20 @@ namespace C969.CustomerForms
                 updateAppointment.AppointmentUpdated += GetAppointments;
                 updateAppointment.Show();
             }      
+        }
+
+        private void dateViewBtn_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = datePicker.Value.Date;
+
+            var appointmentsByDate = Appointments.Where(a => a.Start.Date == selectedDate).ToList();
+
+            appointmentsGrid.DataSource = appointmentsByDate;
+        }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            appointmentsGrid.DataSource = Appointments;
         }
     }
 }
