@@ -272,20 +272,28 @@ namespace C969.CustomerForms
                     {
                         while (reader.Read())
                         {
+                            // get UTC times from DB
+                            DateTime startUtc = reader.GetDateTime("start");
+                            DateTime endUtc = reader.GetDateTime("end");
+
+                            // convert to local time
+                            DateTime startLocal = TimeZoneInfo.ConvertTimeFromUtc(startUtc, TimeZoneInfo.Local);
+                            DateTime endLocal = TimeZoneInfo.ConvertTimeFromUtc(endUtc, TimeZoneInfo.Local);
+
                             Appointment appointment = new Appointment
                             {
                                 AppointmentId = reader.GetInt32("appointmentId"),
                                 CustomerId = reader.GetInt32("customerId"),
                                 CustomerName = reader.GetString("customerName"),
                                 Type = reader.GetString("type"),
-                                Start = reader.GetDateTime("start"),
-                                End = reader.GetDateTime("end")
+                                Start = startLocal,
+                                End = endLocal
                             };
 
                             Appointments.Add(appointment);
                             appointmentsGrid.DataSource = Appointments;
 
-                            // add the time to the columns
+                            // add the time format to the columns
                             appointmentsGrid.Columns["Start"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
                             appointmentsGrid.Columns["End"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
                         }

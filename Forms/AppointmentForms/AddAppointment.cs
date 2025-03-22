@@ -44,11 +44,11 @@ namespace C969.Forms.AppointmentForms
 
                 // check for overlapping appointments
                 string checkQuery = @"
-                SELECT COUNT(*) FROM appointment 
-                WHERE (@start BETWEEN start AND end) 
-                OR (@end BETWEEN start AND end) 
-                OR (start BETWEEN @start AND @end) 
-                OR (end BETWEEN @start AND @end)";
+                    SELECT COUNT(*) FROM appointment 
+                    WHERE (@start BETWEEN start AND end) 
+                    OR (@end BETWEEN start AND end) 
+                    OR (start BETWEEN @start AND @end) 
+                    OR (end BETWEEN @start AND @end)";
 
                 using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, connection))
                 {

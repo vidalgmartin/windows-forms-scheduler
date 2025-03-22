@@ -30,13 +30,12 @@ namespace C969.Forms.AppointmentForms
             nameInput.Text = customerName;
             typeInput.Text = type;
 
-            // convert time to EST for display
-            TimeZoneInfo estZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
-            DateTime startUtc = DateTime.SpecifyKind(start, DateTimeKind.Utc);
-            DateTime startEst = TimeZoneInfo.ConvertTime(startUtc, estZone);
+            // convert to UTC and then to local time for display
+            DateTime startUtc = TimeZoneInfo.ConvertTimeToUtc(start);
+            DateTime startLocal = TimeZoneInfo.ConvertTimeFromUtc(startUtc, TimeZoneInfo.Local);
 
-            datePicker.Value = startEst;
-            timePicker.Value = startEst;
+            datePicker.Value = startLocal;
+            timePicker.Value = startLocal;
         }
 
         public void SaveAppointmentUpdate(int appointmentId, int customerId, string type, DateTime start, DateTime end)
@@ -49,11 +48,11 @@ namespace C969.Forms.AppointmentForms
 
                 // check for overlapping appointments
                 string checkQuery = @"
-                SELECT COUNT(*) FROM appointment 
-                WHERE (@start BETWEEN start AND end) 
-                OR (@end BETWEEN start AND end) 
-                OR (start BETWEEN @start AND @end) 
-                OR (end BETWEEN @start AND @end)";
+                    SELECT COUNT(*) FROM appointment 
+                    WHERE (@start BETWEEN start AND end) 
+                    OR (@end BETWEEN start AND end) 
+                    OR (start BETWEEN @start AND @end) 
+                    OR (end BETWEEN @start AND @end)";
 
                 using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, connection))
                 {
