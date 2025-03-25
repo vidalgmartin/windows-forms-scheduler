@@ -70,7 +70,7 @@ namespace C969.Forms.AppointmentForms
                 DateTime endEST = TimeZoneInfo.ConvertTime(end, estZone);
 
                 // check for EST business hours
-                if (startEST.Hour < 9 || startEST.Hour >= 17  || endEST.Hour == 17 && endEST.Minute == 01 || startEST.DayOfWeek == DayOfWeek.Saturday || startEST.DayOfWeek == DayOfWeek.Sunday)
+                if (startEST.Hour < 8 || startEST.Hour >= 17  || endEST.Hour == 17 && endEST.Minute == 01 || startEST.DayOfWeek == DayOfWeek.Saturday || startEST.DayOfWeek == DayOfWeek.Sunday)
                 {
                     MessageBox.Show("Appointments can only be scheduled Monday through Friday between 9 AM and 5 PM EST.");
                     return;

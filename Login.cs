@@ -67,7 +67,7 @@ namespace C969
                         if (reader.Read())
                         {
                             // log user entry
-                            logLogin(usernameField.Text);
+                            LogLogin(usernameField.Text);
 
                             // update currentUser and currentUserId
                             currentUser = usernameField.Text;
@@ -94,6 +94,9 @@ namespace C969
                         CustomerRecords customerRecordsForm = new CustomerRecords();
                         customerRecordsForm.Show();
 
+                        // check for incoming appointment
+                        UpcomingAppointment();
+
                         // close login form when the customer records form is close
                         customerRecordsForm.FormClosed += (s, args) => this.Close();                       
                     }
@@ -105,7 +108,7 @@ namespace C969
             }          
         }
 
-        public void logLogin(string username)
+        public void LogLogin(string username)
         {
             string logEntry = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] Username: {username}";
 
@@ -136,6 +139,46 @@ namespace C969
                 int firstQuote = result.IndexOf('"') + 1;
                 int secondQuote = result.IndexOf('"', firstQuote);
                 return result.Substring(firstQuote, secondQuote - firstQuote);
+            }
+        }
+
+        public void UpcomingAppointment()
+        {
+            try
+            {
+                DateTime timeUtc = DateTime.UtcNow;
+                DateTime fifteenMinsUtc = timeUtc.AddMinutes(15);
+
+                string query = @"
+                SELECT appointmentId, start 
+                FROM appointment 
+                WHERE userId = @userId 
+                AND start BETWEEN @now AND @fifteenMinutes
+                ORDER BY start ASC
+                LIMIT 1;";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@userId", currentUserId);
+                    cmd.Parameters.AddWithValue("@now", timeUtc);
+                    cmd.Parameters.AddWithValue("@fifteenMinutes", fifteenMinsUtc);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // convert start time from UTC to local time
+                            DateTime startUtc = reader.GetDateTime("start");
+                            DateTime startLocal = TimeZoneInfo.ConvertTimeFromUtc(startUtc, TimeZoneInfo.Local);
+
+                            MessageBox.Show($"You have an appointment at {startLocal:g}.", "Upcoming Appointment", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
