@@ -138,6 +138,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Reports\AppointmentReport.cs" />
     <Compile Include="Reports\CustomerAppointmentCount.cs" />
     <Compile Include="Reports\UserSchedule.cs" />

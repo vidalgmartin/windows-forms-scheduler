@@ -9,16 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using C969.Models;
 using static C969.Database.DbConnection;
 
 namespace C969.CustomerForms
 {
     public partial class UpdateCustomer : Form
     {
-        private CustomerRecords.Customer _customer;
+        private Customer _customer;
         public event Action CustomerUpdated;
 
-        public UpdateCustomer(CustomerRecords.Customer customer)
+        public UpdateCustomer(Customer customer)
         {
             InitializeComponent();
   

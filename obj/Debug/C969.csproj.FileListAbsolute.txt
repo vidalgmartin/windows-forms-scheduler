@@ -34,6 +34,8 @@ C:\Users\Vidal\Code\C969\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Vidal\Code\C969\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Vidal\Code\C969\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.AssemblyReference.cache
+C:\Users\Vidal\Code\C969\obj\Debug\C969.Forms.AppointmentForms.AddAppointment.resources
+C:\Users\Vidal\Code\C969\obj\Debug\C969.Forms.AppointmentForms.UpdateAppointment.resources
 C:\Users\Vidal\Code\C969\obj\Debug\C969.CustomerForms.AddCustomer.resources
 C:\Users\Vidal\Code\C969\obj\Debug\C969.CustomerForms.CustomerRecords.resources
 C:\Users\Vidal\Code\C969\obj\Debug\C969.CustomerForms.UpdateCustomer.resources
@@ -44,5 +46,3 @@ C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.CoreCompileInputs.cache
 C:\Users\Vidal\Code\C969\obj\Debug\C969.csproj.Up2Date
 C:\Users\Vidal\Code\C969\obj\Debug\C969.exe
 C:\Users\Vidal\Code\C969\obj\Debug\C969.pdb
-C:\Users\Vidal\Code\C969\obj\Debug\C969.Forms.AppointmentForms.AddAppointment.resources
-C:\Users\Vidal\Code\C969\obj\Debug\C969.Forms.AppointmentForms.UpdateAppointment.resources
