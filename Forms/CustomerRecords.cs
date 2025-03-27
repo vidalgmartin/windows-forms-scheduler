@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
 using C969.Forms.AppointmentForms;
+using C969.Reports;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using static C969.Database.DbConnection;
@@ -384,6 +385,18 @@ namespace C969.CustomerForms
         private void resetBtn_Click(object sender, EventArgs e)
         {
             appointmentsGrid.DataSource = Appointments;
+        }
+
+        private void appointmentsReportBtn_Click(object sender, EventArgs e)
+        {
+            AppointmentReport appointmentReport = new AppointmentReport();
+            appointmentReport.DisplayAppointmentReport();
+        }
+
+        private void userSchedulesBtn_Click(object sender, EventArgs e)
+        {
+            UserSchedule userSchedule = new UserSchedule();
+            userSchedule.DisplayUserSchedules();
         }
     }
 }

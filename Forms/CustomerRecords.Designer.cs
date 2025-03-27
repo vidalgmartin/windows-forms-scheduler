@@ -54,6 +54,8 @@
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.dateViewBtn = new System.Windows.Forms.Button();
             this.resetBtn = new System.Windows.Forms.Button();
+            this.appointmentsReportBtn = new System.Windows.Forms.Button();
+            this.userSchedulesBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.customerRecordsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsGrid)).BeginInit();
             this.SuspendLayout();
@@ -326,11 +328,33 @@
             this.resetBtn.UseVisualStyleBackColor = true;
             this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
+            // appointmentsReportBtn
+            // 
+            this.appointmentsReportBtn.Location = new System.Drawing.Point(59, 761);
+            this.appointmentsReportBtn.Name = "appointmentsReportBtn";
+            this.appointmentsReportBtn.Size = new System.Drawing.Size(113, 35);
+            this.appointmentsReportBtn.TabIndex = 12;
+            this.appointmentsReportBtn.Text = "Appointments";
+            this.appointmentsReportBtn.UseVisualStyleBackColor = true;
+            this.appointmentsReportBtn.Click += new System.EventHandler(this.appointmentsReportBtn_Click);
+            // 
+            // userSchedulesBtn
+            // 
+            this.userSchedulesBtn.Location = new System.Drawing.Point(194, 761);
+            this.userSchedulesBtn.Name = "userSchedulesBtn";
+            this.userSchedulesBtn.Size = new System.Drawing.Size(113, 35);
+            this.userSchedulesBtn.TabIndex = 13;
+            this.userSchedulesBtn.Text = "User Schedules";
+            this.userSchedulesBtn.UseVisualStyleBackColor = true;
+            this.userSchedulesBtn.Click += new System.EventHandler(this.userSchedulesBtn_Click);
+            // 
             // CustomerRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 813);
+            this.Controls.Add(this.userSchedulesBtn);
+            this.Controls.Add(this.appointmentsReportBtn);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.dateViewBtn);
             this.Controls.Add(this.datePicker);
@@ -376,5 +400,7 @@
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.Button dateViewBtn;
         private System.Windows.Forms.Button resetBtn;
+        private System.Windows.Forms.Button appointmentsReportBtn;
+        private System.Windows.Forms.Button userSchedulesBtn;
     }
 }
