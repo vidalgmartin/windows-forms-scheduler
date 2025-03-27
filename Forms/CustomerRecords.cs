@@ -398,5 +398,11 @@ namespace C969.CustomerForms
             UserSchedule userSchedule = new UserSchedule();
             userSchedule.DisplayUserSchedules();
         }
+
+        private void customerAppointmentsBtn_Click(object sender, EventArgs e)
+        {
+            CustomerAppointmentCount customerAppointmentCount = new CustomerAppointmentCount();
+            customerAppointmentCount.DisplayCustomersAppointmentCounts();
+        }
     }
 }

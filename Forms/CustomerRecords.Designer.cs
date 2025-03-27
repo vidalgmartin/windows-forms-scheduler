@@ -56,6 +56,7 @@
             this.resetBtn = new System.Windows.Forms.Button();
             this.appointmentsReportBtn = new System.Windows.Forms.Button();
             this.userSchedulesBtn = new System.Windows.Forms.Button();
+            this.customerAppointmentsBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.customerRecordsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsGrid)).BeginInit();
             this.SuspendLayout();
@@ -348,11 +349,22 @@
             this.userSchedulesBtn.UseVisualStyleBackColor = true;
             this.userSchedulesBtn.Click += new System.EventHandler(this.userSchedulesBtn_Click);
             // 
+            // customerAppointmentsBtn
+            // 
+            this.customerAppointmentsBtn.Location = new System.Drawing.Point(330, 761);
+            this.customerAppointmentsBtn.Name = "customerAppointmentsBtn";
+            this.customerAppointmentsBtn.Size = new System.Drawing.Size(113, 35);
+            this.customerAppointmentsBtn.TabIndex = 14;
+            this.customerAppointmentsBtn.Text = "Customer Appointments";
+            this.customerAppointmentsBtn.UseVisualStyleBackColor = true;
+            this.customerAppointmentsBtn.Click += new System.EventHandler(this.customerAppointmentsBtn_Click);
+            // 
             // CustomerRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 813);
+            this.Controls.Add(this.customerAppointmentsBtn);
             this.Controls.Add(this.userSchedulesBtn);
             this.Controls.Add(this.appointmentsReportBtn);
             this.Controls.Add(this.resetBtn);
@@ -402,5 +414,6 @@
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Button appointmentsReportBtn;
         private System.Windows.Forms.Button userSchedulesBtn;
+        private System.Windows.Forms.Button customerAppointmentsBtn;
     }
 }
