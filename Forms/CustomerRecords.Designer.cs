@@ -57,6 +57,8 @@
             this.appointmentsReportBtn = new System.Windows.Forms.Button();
             this.userSchedulesBtn = new System.Windows.Forms.Button();
             this.customerAppointmentsBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.customerRecordsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsGrid)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +69,9 @@
             this.customerRecordsGrid.AllowUserToDeleteRows = false;
             this.customerRecordsGrid.AllowUserToResizeColumns = false;
             this.customerRecordsGrid.AllowUserToResizeRows = false;
+            this.customerRecordsGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.customerRecordsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -86,7 +91,7 @@
             this.countryColumn,
             this.phoneColumn});
             this.customerRecordsGrid.EnableHeadersVisualStyles = false;
-            this.customerRecordsGrid.Location = new System.Drawing.Point(29, 24);
+            this.customerRecordsGrid.Location = new System.Drawing.Point(65, 81);
             this.customerRecordsGrid.MultiSelect = false;
             this.customerRecordsGrid.Name = "customerRecordsGrid";
             this.customerRecordsGrid.ReadOnly = true;
@@ -94,7 +99,7 @@
             this.customerRecordsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.customerRecordsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customerRecordsGrid.ShowEditingIcon = false;
-            this.customerRecordsGrid.Size = new System.Drawing.Size(776, 275);
+            this.customerRecordsGrid.Size = new System.Drawing.Size(800, 250);
             this.customerRecordsGrid.TabIndex = 0;
             // 
             // customerId
@@ -157,9 +162,12 @@
             // 
             // addCustomerBtn
             // 
-            this.addCustomerBtn.Location = new System.Drawing.Point(479, 316);
+            this.addCustomerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addCustomerBtn.Location = new System.Drawing.Point(614, 337);
             this.addCustomerBtn.Name = "addCustomerBtn";
-            this.addCustomerBtn.Size = new System.Drawing.Size(100, 40);
+            this.addCustomerBtn.Size = new System.Drawing.Size(75, 30);
             this.addCustomerBtn.TabIndex = 1;
             this.addCustomerBtn.Text = "Add";
             this.addCustomerBtn.UseVisualStyleBackColor = true;
@@ -167,10 +175,13 @@
             // 
             // updateCustomerBtn
             // 
-            this.updateCustomerBtn.Location = new System.Drawing.Point(592, 316);
+            this.updateCustomerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.updateCustomerBtn.Location = new System.Drawing.Point(702, 337);
             this.updateCustomerBtn.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.updateCustomerBtn.Name = "updateCustomerBtn";
-            this.updateCustomerBtn.Size = new System.Drawing.Size(100, 40);
+            this.updateCustomerBtn.Size = new System.Drawing.Size(75, 30);
             this.updateCustomerBtn.TabIndex = 2;
             this.updateCustomerBtn.Text = "Update";
             this.updateCustomerBtn.UseVisualStyleBackColor = true;
@@ -178,10 +189,13 @@
             // 
             // deleteCustomerBtn
             // 
-            this.deleteCustomerBtn.Location = new System.Drawing.Point(705, 316);
+            this.deleteCustomerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteCustomerBtn.Location = new System.Drawing.Point(790, 337);
             this.deleteCustomerBtn.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.deleteCustomerBtn.Name = "deleteCustomerBtn";
-            this.deleteCustomerBtn.Size = new System.Drawing.Size(100, 40);
+            this.deleteCustomerBtn.Size = new System.Drawing.Size(75, 30);
             this.deleteCustomerBtn.TabIndex = 3;
             this.deleteCustomerBtn.Text = "Delete";
             this.deleteCustomerBtn.UseVisualStyleBackColor = true;
@@ -193,6 +207,9 @@
             this.appointmentsGrid.AllowUserToDeleteRows = false;
             this.appointmentsGrid.AllowUserToResizeColumns = false;
             this.appointmentsGrid.AllowUserToResizeRows = false;
+            this.appointmentsGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.appointmentsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -211,7 +228,7 @@
             this.start,
             this.end});
             this.appointmentsGrid.EnableHeadersVisualStyles = false;
-            this.appointmentsGrid.Location = new System.Drawing.Point(29, 429);
+            this.appointmentsGrid.Location = new System.Drawing.Point(65, 505);
             this.appointmentsGrid.MultiSelect = false;
             this.appointmentsGrid.Name = "appointmentsGrid";
             this.appointmentsGrid.ReadOnly = true;
@@ -219,7 +236,7 @@
             this.appointmentsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.appointmentsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.appointmentsGrid.ShowEditingIcon = false;
-            this.appointmentsGrid.Size = new System.Drawing.Size(776, 275);
+            this.appointmentsGrid.Size = new System.Drawing.Size(800, 250);
             this.appointmentsGrid.TabIndex = 5;
             // 
             // appointmentId
@@ -229,11 +246,12 @@
             this.appointmentId.HeaderText = "AppointmentID";
             this.appointmentId.Name = "appointmentId";
             this.appointmentId.ReadOnly = true;
+            this.appointmentId.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "customerId";
-            this.dataGridViewTextBoxColumn1.FillWeight = 45F;
+            this.dataGridViewTextBoxColumn1.FillWeight = 30F;
             this.dataGridViewTextBoxColumn1.HeaderText = "CustomerID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -272,10 +290,13 @@
             // 
             // deleteAppointmentBtn
             // 
-            this.deleteAppointmentBtn.Location = new System.Drawing.Point(705, 720);
+            this.deleteAppointmentBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteAppointmentBtn.Location = new System.Drawing.Point(790, 761);
             this.deleteAppointmentBtn.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.deleteAppointmentBtn.Name = "deleteAppointmentBtn";
-            this.deleteAppointmentBtn.Size = new System.Drawing.Size(100, 40);
+            this.deleteAppointmentBtn.Size = new System.Drawing.Size(75, 30);
             this.deleteAppointmentBtn.TabIndex = 8;
             this.deleteAppointmentBtn.Text = "Delete";
             this.deleteAppointmentBtn.UseVisualStyleBackColor = true;
@@ -283,10 +304,13 @@
             // 
             // updateAppointmentBtn
             // 
-            this.updateAppointmentBtn.Location = new System.Drawing.Point(592, 720);
+            this.updateAppointmentBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.updateAppointmentBtn.Location = new System.Drawing.Point(702, 761);
             this.updateAppointmentBtn.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.updateAppointmentBtn.Name = "updateAppointmentBtn";
-            this.updateAppointmentBtn.Size = new System.Drawing.Size(100, 40);
+            this.updateAppointmentBtn.Size = new System.Drawing.Size(75, 30);
             this.updateAppointmentBtn.TabIndex = 7;
             this.updateAppointmentBtn.Text = "Update";
             this.updateAppointmentBtn.UseVisualStyleBackColor = true;
@@ -294,9 +318,12 @@
             // 
             // addAppointmentBtn
             // 
-            this.addAppointmentBtn.Location = new System.Drawing.Point(479, 720);
+            this.addAppointmentBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addAppointmentBtn.Location = new System.Drawing.Point(614, 761);
             this.addAppointmentBtn.Name = "addAppointmentBtn";
-            this.addAppointmentBtn.Size = new System.Drawing.Size(100, 40);
+            this.addAppointmentBtn.Size = new System.Drawing.Size(75, 30);
             this.addAppointmentBtn.TabIndex = 6;
             this.addAppointmentBtn.Text = "Add";
             this.addAppointmentBtn.UseVisualStyleBackColor = true;
@@ -304,14 +331,20 @@
             // 
             // datePicker
             // 
-            this.datePicker.Location = new System.Drawing.Point(29, 720);
+            this.datePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.datePicker.Location = new System.Drawing.Point(489, 471);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(214, 20);
             this.datePicker.TabIndex = 9;
             // 
             // dateViewBtn
             // 
-            this.dateViewBtn.Location = new System.Drawing.Point(249, 720);
+            this.dateViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateViewBtn.Location = new System.Drawing.Point(709, 468);
             this.dateViewBtn.Name = "dateViewBtn";
             this.dateViewBtn.Size = new System.Drawing.Size(75, 23);
             this.dateViewBtn.TabIndex = 10;
@@ -321,7 +354,10 @@
             // 
             // resetBtn
             // 
-            this.resetBtn.Location = new System.Drawing.Point(330, 720);
+            this.resetBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resetBtn.Location = new System.Drawing.Point(790, 468);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(75, 23);
             this.resetBtn.TabIndex = 11;
@@ -331,19 +367,26 @@
             // 
             // appointmentsReportBtn
             // 
-            this.appointmentsReportBtn.Location = new System.Drawing.Point(59, 761);
+            this.appointmentsReportBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.appointmentsReportBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.appointmentsReportBtn.Location = new System.Drawing.Point(65, 761);
             this.appointmentsReportBtn.Name = "appointmentsReportBtn";
-            this.appointmentsReportBtn.Size = new System.Drawing.Size(113, 35);
+            this.appointmentsReportBtn.Size = new System.Drawing.Size(120, 40);
             this.appointmentsReportBtn.TabIndex = 12;
-            this.appointmentsReportBtn.Text = "Appointments";
-            this.appointmentsReportBtn.UseVisualStyleBackColor = true;
+            this.appointmentsReportBtn.Text = "Appointments by Month";
+            this.appointmentsReportBtn.UseVisualStyleBackColor = false;
             this.appointmentsReportBtn.Click += new System.EventHandler(this.appointmentsReportBtn_Click);
             // 
             // userSchedulesBtn
             // 
-            this.userSchedulesBtn.Location = new System.Drawing.Point(194, 761);
+            this.userSchedulesBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userSchedulesBtn.Location = new System.Drawing.Point(317, 761);
             this.userSchedulesBtn.Name = "userSchedulesBtn";
-            this.userSchedulesBtn.Size = new System.Drawing.Size(113, 35);
+            this.userSchedulesBtn.Size = new System.Drawing.Size(120, 40);
             this.userSchedulesBtn.TabIndex = 13;
             this.userSchedulesBtn.Text = "User Schedules";
             this.userSchedulesBtn.UseVisualStyleBackColor = true;
@@ -351,19 +394,49 @@
             // 
             // customerAppointmentsBtn
             // 
-            this.customerAppointmentsBtn.Location = new System.Drawing.Point(330, 761);
+            this.customerAppointmentsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.customerAppointmentsBtn.Location = new System.Drawing.Point(191, 761);
             this.customerAppointmentsBtn.Name = "customerAppointmentsBtn";
-            this.customerAppointmentsBtn.Size = new System.Drawing.Size(113, 35);
+            this.customerAppointmentsBtn.Size = new System.Drawing.Size(120, 40);
             this.customerAppointmentsBtn.TabIndex = 14;
-            this.customerAppointmentsBtn.Text = "Customer Appointments";
+            this.customerAppointmentsBtn.Text = "Appointments by Customer";
             this.customerAppointmentsBtn.UseVisualStyleBackColor = true;
             this.customerAppointmentsBtn.Click += new System.EventHandler(this.customerAppointmentsBtn_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(61, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 20);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Customers";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(64, 471);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 20);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Appointments";
+            // 
             // CustomerRecords
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 813);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(934, 861);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.customerAppointmentsBtn);
             this.Controls.Add(this.userSchedulesBtn);
             this.Controls.Add(this.appointmentsReportBtn);
@@ -383,6 +456,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerRecordsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -403,17 +477,19 @@
         private System.Windows.Forms.Button deleteAppointmentBtn;
         private System.Windows.Forms.Button updateAppointmentBtn;
         private System.Windows.Forms.Button addAppointmentBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn start;
-        private System.Windows.Forms.DataGridViewTextBoxColumn end;
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.Button dateViewBtn;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Button appointmentsReportBtn;
         private System.Windows.Forms.Button userSchedulesBtn;
         private System.Windows.Forms.Button customerAppointmentsBtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn start;
+        private System.Windows.Forms.DataGridViewTextBoxColumn end;
     }
 }

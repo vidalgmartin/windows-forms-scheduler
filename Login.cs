@@ -54,9 +54,11 @@ namespace C969
 
                     if (usernameField.Text == "" || passwordField.Text == "")
                     {
+                        errorLabel.Visible = true;
                         errorLabel.Text = "Fields cannot be empty";
 
                         string translatedText = TranslateText(errorLabel.Text, languageIso);
+                        translatedErrorLabel.Visible = true;
                         translatedErrorLabel.Text = translatedText;
 
                         return;
@@ -81,9 +83,11 @@ namespace C969
                         }
                         else
                         {
+                            errorLabel.Visible = true;
                             errorLabel.Text = "The username and password do not match.";
 
                             string translatedText = TranslateText(errorLabel.Text, languageIso);
+                            translatedErrorLabel.Visible = true;
                             translatedErrorLabel.Text = translatedText;
                         }
                     }
